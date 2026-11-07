@@ -17,7 +17,7 @@ const Home = () => {
     ) : [];
 
     return (
-        <div className="main-container">
+        <div className="main-container" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 20px", boxSizing: "border-box" }}>
             <header className="home-dashboard-header">
                 <div>
                     <h1>Gestión de Stock de Vehículos</h1>
@@ -32,19 +32,27 @@ const Home = () => {
                 />
             </header>
 
-             <div className="vehicles-grid-layout" style={{ width: "100%", padding: "20px 0" }}>
-                <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-                    gap: "24px",
-                    width: "100%"
-                }}>
-                    {cochesFiltrados.map((coche) => (
-                        <div key={coche._id} style={{ display: "flex", width: "100%" }}>
-                            <VehicleCard coche={coche} />
-                        </div>
-                    ))}
-                </div>
+            <div style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", 
+                gap: "30px", 
+                width: "100%", 
+                margin: "40px 0", 
+                boxSizing: "border-box" 
+            }}>
+                {cochesFiltrados.map((coche) => (
+                    <div 
+                        key={coche._id} 
+                        style={{ 
+                            display: "flex", 
+                            flexDirection: "column", 
+                            width: "100%",
+                            boxSizing: "border-box"
+                        }}
+                    >
+                        <VehicleCard coche={coche} />
+                    </div>
+                ))}
             </div>
         </div>
     );
