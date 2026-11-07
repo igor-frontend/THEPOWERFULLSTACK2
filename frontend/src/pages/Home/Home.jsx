@@ -33,9 +33,12 @@ const Home = () => {
             </header>
 
             <div className="vehicles-grid-layout">
-                <div className="vehicles-grid-container">
+                {/* Forzamos el contenedor principal de la cuadrícula */}
+                <div className="vehicles-grid-container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px", width: "100%" }}>
                     {cochesFiltrados.map((coche) => (
-                        <VehicleCard key={coche._id} coche={coche} />
+                        <div key={coche._id} className="vehicle-card-item-wrapper">
+                            <VehicleCard coche={coche} />
+                        </div>
                     ))}
                 </div>
             </div>
