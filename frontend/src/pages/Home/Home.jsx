@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { API_BASE_URL } from "../../config/api";
@@ -12,10 +11,10 @@ const Home = () => {
     if (loading) return <div className="loading-msg">Cargando flota automotriz del concesionario...</div>;
     if (error) return <div className="main-container"><div className="error-msg">Error de conexión: {error}</div></div>;
 
-    const cochesFiltrados = vehiculos.filter(c => 
+    const cochesFiltrados = vehiculos ? vehiculos.filter(c => 
         (c.marca && c.marca.toLowerCase().includes(filtroMarca.toLowerCase())) ||
         (c.modelo && c.modelo.toLowerCase().includes(filtroMarca.toLowerCase()))
-    );
+    ) : [];
 
     return (
         <div className="main-container">
